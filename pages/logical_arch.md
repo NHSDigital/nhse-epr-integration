@@ -14,11 +14,15 @@ Option A in __Figure 1__ assumes direct retrieval (and the management) of appoin
 
 <a name="figure1"></a>
 ![Overall logical architecture Option A](images/Figure1.png)
-Figure 1. Logical Integration Architecture (option A)
 
-Option B in Figure 2 assumes that such retrieval (and the management) of appointments is carried out via a BaRS Proxy. This will be explained in more detail in the sections (below) on Record Retrieval.
-In the following sections, the 4 integration touchpoints are described further, with the greatest focus on (2) – Signposting, and (3) – Record retrieval.
+_Figure 1. Logical Integration Architecture (option A)_
+
+Option B in __Figure 2__ assumes that such retrieval (and the management) of appointments is carried out via a BaRS Proxy. This will be explained in more detail in the sections (below) on Record Retrieval.
 
 <a name="figure2"></a>
 ![Overall logical architecture Option B](images/Figure2.png)
-Figure 2. Logical Integration Architecture (option B)
+
+_Figure 2. Logical Integration Architecture (option B)_
+
+In the following sections, the 4 integration touchpoints are described further, with the greatest focus on __(2)__ – [Signposting](appendix1.md), and __(3)__ – [Record retrieval](appendix2.md).
+
