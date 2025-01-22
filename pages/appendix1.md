@@ -96,7 +96,8 @@ __Specific to this 'direct' use case - content.attachment.url MUST contain the d
 "content": [
   {
     "attachment": {
-    "url": "http://example.org/api/FHIR/R4/Appointment/{ID}"
+      "url": "http://example.org/api/FHIR/R4/Appointment/{ID}"
+    }
   }
 ]
 ```
