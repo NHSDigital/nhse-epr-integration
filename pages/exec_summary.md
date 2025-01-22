@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Integration Strategy](int_strat.md)
+
 # Executive Summary
 
 This document outlines the NHS England strategy for the integration of national health care services, such as Wayfinder, with external EPR systems such as Epic.

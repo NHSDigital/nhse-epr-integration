@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Page-1" id="UK0zPjOBolBRVTsRaxdc">
+    <mxGraphModel dx="2389" dy="810" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-1" value="Trust A" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-530" y="282" width="240" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-3" target="TzjqKDQzo0mjQfdwsAqL-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-3" value="Epic" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="-480" y="335" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-4" value="Integration Engine" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="-480" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-5" value="&amp;nbsp;&lt;b&gt;NHSE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fontStyle=0;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=14;strokeWidth=2;dashed=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="520" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-6" value="APIM" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f9f7ed;strokeColor=#36393d;fontSize=14;fontStyle=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="110" y="295" width="120" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-7" value="BaRS&lt;div&gt;Proxy&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;fontSize=14;fontStyle=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="125" y="346" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;strokeWidth=2;fontStyle=0;curved=0;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-9" target="TzjqKDQzo0mjQfdwsAqL-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-9" value="Wayfinder&amp;nbsp;&lt;div&gt;Aggregator&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="346" width="110" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-10" value="GET https:[BaRS]/Appointment/{ID}&lt;br&gt;ServiceID=[SvcID]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontSize=14;curved=0;strokeWidth=2;fontStyle=0;labelBackgroundColor=none;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-9" target="TzjqKDQzo0mjQfdwsAqL-7">
+          <mxGeometry x="-0.3443" y="-21" relative="1" as="geometry">
+            <mxPoint x="120" y="385" as="sourcePoint" />
+            <mxPoint x="-290" y="353" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-11" value="FHIR UK Core Appointment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;dashed=1;fontSize=14;curved=0;strokeWidth=2;fontStyle=0;labelBackgroundColor=none;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-7" target="TzjqKDQzo0mjQfdwsAqL-9">
+          <mxGeometry x="-0.0783" y="-9" relative="1" as="geometry">
+            <mxPoint x="-290" y="448" as="sourcePoint" />
+            <mxPoint x="120" y="415" as="targetPoint" />
+            <mxPoint x="-7" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-12" value="Authentication: TLS/MA" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#0000CC;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-180" y="381" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-13" value="Authentication OAuth 2.0 Token Exchange" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#0000CC;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="250" y="381" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-14" value="NHS App" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.android.phone2;strokeColor=#006EAF;fillColor=#1ba1e2;fontColor=#ffffff;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="330" y="680" width="100" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;fontStyle=0;curved=0;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-16" target="TzjqKDQzo0mjQfdwsAqL-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-16" value="App Backend" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=0;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="500" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-17" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.325;entryY=0.97;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.3;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;fontStyle=0" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-14" target="TzjqKDQzo0mjQfdwsAqL-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="780" as="sourcePoint" />
+            <mxPoint x="210" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-18" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeWidth=2;fontStyle=0" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-16" target="TzjqKDQzo0mjQfdwsAqL-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="770" as="sourcePoint" />
+            <mxPoint x="620" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-19" value="GET https:/trustA.nhs.uk/Appointment/{ID}" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontSize=14;strokeWidth=2;fontStyle=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-7" target="TzjqKDQzo0mjQfdwsAqL-1">
+          <mxGeometry x="0.0471" y="-41" relative="1" as="geometry">
+            <mxPoint x="287" y="63" as="sourcePoint" />
+            <mxPoint x="23" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TzjqKDQzo0mjQfdwsAqL-20" value="FHIR UK Core&lt;div&gt;Appointment&lt;/div&gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;dashed=1;fontSize=14;strokeWidth=2;fontStyle=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TzjqKDQzo0mjQfdwsAqL-1" target="TzjqKDQzo0mjQfdwsAqL-7">
+          <mxGeometry x="-0.0748" y="-30" relative="1" as="geometry">
+            <mxPoint x="227" y="63" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

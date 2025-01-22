@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Record Retrieval](record_retrieval.md)
+
 # Signposting
 
 The strategic solution MUST have Epic/EPR integrate with the NRL ([National Record Locator](https://digital.nhs.uk/services/national-record-locator)) service. In the future, most NHS systems of record will be required to upload pointers (or, record locators) to patient data, thus enabling discovery and subsequent retrieval (and in some cases, the management) of those patient data.

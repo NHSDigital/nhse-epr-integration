@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Authentication](authentication.md)
+
 # Logical Architecture
 
 The diagrams below describe the logical integration architecture, 4 separate integration touchpoints:
@@ -13,14 +15,14 @@ As can be seen in the diagram, two options are considered.
 Option A in __Figure 1__ assumes direct retrieval (and the management) of appointments by Wayfinder Aggregator from the Epic EPR.
 
 <a name="figure1"></a>
-![Overall logical architecture Option A](images/Figure1.png)
+![Overall logical architecture Option A](images/Figure1.svg)
 
 _Figure 1. Logical Integration Architecture (option A)_
 
 Option B in __Figure 2__ assumes that such retrieval (and the management) of appointments is carried out via a BaRS Proxy. This will be explained in more detail in the sections (below) on Record Retrieval.
 
 <a name="figure2"></a>
-![Overall logical architecture Option B](images/Figure2.png)
+![Overall logical architecture Option B](images/Figure2.svg)
 
 _Figure 2. Logical Integration Architecture (option B)_
 

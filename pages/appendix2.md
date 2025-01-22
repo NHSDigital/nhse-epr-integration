@@ -53,7 +53,7 @@ FHIR UK Core R4 Appointment as defined [here](https://simplifier.net/packages/hl
 
 
 Example (unencoded) `NHSD-Target-Identifier`:
-```
+```json
 {
   "value": "2000072491",
   "system": "https://fhir.nhs.uk/Id/dos-service-id"
@@ -67,7 +67,7 @@ Example (Base64 encoded) `NHSD-Target-Identifier`:
 
 
 Example (unencoded) `NHSD-End-User-Organisation`:
-```
+```json
 {
   "resourceType": "Organization",
   "identifier": [
@@ -86,7 +86,7 @@ gIMKgICJ2YWx1ZSI6ICJYMjYiCgoKwqAgwqAgfSwKwqAgIm5hbWUiOiAiTkhTIEVOR0xBTkQgLSBYMjY
 <a name="dataflows"></a>
 ## Data Flows
 
-![Integration via BaRS Proxy](images/Figure4.png)
+![Integration via BaRS Proxy](images/Figure4.svg)
 Figure 4. Integration via BaRS Proxy 
 
 

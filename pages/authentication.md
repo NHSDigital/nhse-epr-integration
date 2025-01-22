@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Signposting](signposting.md)
+
 # Authentication
 
 The strategic solution MUST involve the use of an NHS login account for each and every MyChart users who has an active NHS login account with P9 level of identity verification.

@@ -1,4 +1,6 @@
-# Wayfinder – Epic Integration
+![Uploading pointers using BaRS Proxy](pages/images/logo.jpg)
+# Wayfinder – EPR Integration
+
 
 ## Contents
 - [Executive Summary](pages/exec_summary.md)

@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Appendix 2: Record retrieval (technical detail)](appendix2.md)
+
 # Appendix 1: Signposting (technical detail)
 
 <a name="background"></a>
@@ -41,7 +43,7 @@ The payload for POST and PUT is a standard FHIR R4 DocumentReference with some s
 The restrictions will be determined by the BaRS programme, but in general are:
 
 __subject MUST be a Patient reference using a valid NHS number. e.g.__
-```
+```json
 "subject": {
   "identifier": {
     "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -51,7 +53,7 @@ __subject MUST be a Patient reference using a valid NHS number. e.g.__
 ```
 
 __custodian MUST be an Organization reference using a valid ODS code, agreed during onboarding. e.g.__
-```
+```json
 "custodian": {
   "identifier": {
     "system": "https://fhir.nhs.uk/Id/ods-organization-code",
@@ -61,7 +63,7 @@ __custodian MUST be an Organization reference using a valid ODS code, agreed dur
 ```
 
 __type MUST match one of the Document Types agreed during onboarding. e.g.__
-```
+```json
 "type": {
   "coding": [
     {
@@ -74,7 +76,7 @@ __type MUST match one of the Document Types agreed during onboarding. e.g.__
 ```
 
 __category MUST indicate the broader class of the Document Type as agreed during onboarding.e.g.__
-```
+```json
 "category": [
   {
     "coding": [
@@ -90,7 +92,7 @@ __category MUST indicate the broader class of the Document Type as agreed during
 
 __content MUST have at least one entry.__
 __Specific to this 'direct' use case - content.attachment.url MUST contain the direct URL of the appointment being registered__
-```
+```json
 "content": [
   {
     "attachment": {
@@ -100,7 +102,7 @@ __Specific to this 'direct' use case - content.attachment.url MUST contain the d
 ```
 
 __content[].format[] SHOULD indicate whether the data is structured or not, e.g.__
-```
+```json
 "format": [
   {
     "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode",
@@ -111,7 +113,7 @@ __content[].format[] SHOULD indicate whether the data is structured or not, e.g.
 ```
 
 __author SHOULD have an entry with an Organization reference using a valid ODS code.__
-```
+```json
 "author": [
   {
     "identifier": {
@@ -123,7 +125,7 @@ __author SHOULD have an entry with an Organization reference using a valid ODS c
 ```
 
 __context MUST include a related entry containing the ASID if the document is to be accessed via SSP, e.g. - NOT REQUIRED IN THIS CASE__
-```
+```json
 "context": {
   "related": [
     {
@@ -137,7 +139,7 @@ __context MUST include a related entry containing the ASID if the document is to
 ```
 
 __context SHOULD include a period set to the Appointment start and end times, e.g.__
-```
+```json
 "context": {
   "period": {
     "start": "2025-01-15T09:50:00Z",
@@ -153,7 +155,7 @@ __In order to be BaRS compliant, the DocumentReference MUST include identifiers 
   * The value of the identifier with this system is determined at the time of BaRS onboarding, and allows the BaRS proxy to lookup the service in the Endpoint Catalogue.
 * https://fhir.nhs.uk/id/product-id
   * The product id is forthcoming feature of the NRL API, it allows pointer updates to be controlled at a level below the organisation, more information can be found here. INV0025 - Authorisation: ODS vs ProductID.  The NRL team have confirmed that their work to support the Wayfinder includes this work, see CLPFEATURE-161 - Product IDs for BARs
-```
+```json
 "identifier": [
   {
     "system": "https://fhir.nhs.uk/Id/BaRS-Identifier",
@@ -171,7 +173,7 @@ __In order to be BaRS compliant, the DocumentReference MUST include identifiers 
 ```
 <a name="example"></a>
 ## Example Payload
-```
+```json
 {
   "resourceType": "DocumentReference",
   "id": "Yorkshire Ambulance Service|423456781055",
@@ -281,7 +283,7 @@ __In order to be BaRS compliant, the DocumentReference MUST include identifiers 
 | `NHSD-End-User-Organisation` | Requesting Organization described in an object based on a FHIR 'Organization' resource (Base64 encoded JSON). | Base64 encoded JSON object |
 
 Example (unencoded) `NHSD-End-User-Organisation`:
-```
+```json
 {
   "resourceType": "Organization",
   "identifier": [
@@ -298,7 +300,7 @@ Example (Base64 encoded) `NHSD-End-User-Organisation`:
 wrCoCDCoCB7CsKgIMKgIMKgICJodHRwczovL2ZoaXIubmhzLnVrL0lkL29kcy1vcmdhbml6YXRpb24tY29kZSIsCsKgIMK
 gIMKgICJ2YWx1ZSI6ICJYMjYiCgoKwqAgwqAgfSwKwqAgIm5hbWUiOiAiTkhTIEVOR0xBTkQgLSBYMjYiCsKgIF0KfQ==` 
 
-![Uploading pointers using BaRS Proxy](images/Figure3.png)
+![Uploading pointers using BaRS Proxy](images/Figure3.svg)
 Figure 3. Uploading pointers to NRL using BaRS Proxy
 
 <a name="lookup"></a>

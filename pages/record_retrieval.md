@@ -1,5 +1,7 @@
 [Home](../readme.md)
 
+[Next - Appendix 1: Signposting (technical detail)](appendix1.md)
+
 # Record Retrieval
 
 The strategic Epic/EPR solution MUST publish API endpoints which are FHIR UK Core R4 compliant. For instance, this means that a FHIR UK Core R4 compliant Appointment resource is returned in the response payload when Wayfinder Aggregator attempts to retrieve those records on behalf of a patient. The FHIR UK Core standard allows for FHIR extensions, and there are Wayfinder specific extensions as explained below.
