@@ -22,7 +22,7 @@ NHS England BaRS Proxy API acts as an intermediary, FHIR API on Trust EPR is the
 ## Endpoint
 URL is constructed from the BaRS base URL + ID:
 * BaRS base URL, [see details](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_2_0#overview--environments-and-testing)
-* ID is taken from the DocumentReference resource retrieved in step 2b Appointment Lookup the ID can be taken from either (in both cases 8c63d621-4d86-4f57-8699-e8e22d49935d in the example):
+* ID is taken from the DocumentReference resource retrieved from an NRL lookup (whether [through BaRS Proxy](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_2_0#get-/DocumentReference) or [direct from NRL](https://digital.nhs.uk/developer/api-catalogue/national-record-locator-fhir/v3/consumer#get-/DocumentReference)) the ID can be taken from either (in both cases 8c63d621-4d86-4f57-8699-e8e22d49935d in the example):
   * The end of the content[0].attachment.url attribute.
   * The value  of the identifier with system of: https://fhir.nhs.uk/Id/BaRS-Identifier
 

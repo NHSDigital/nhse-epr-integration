@@ -28,7 +28,7 @@ The actual endpoints [^2] are defined in [the BaRS documentation](https://digita
 
 On creating a new Appointment, send a POST request as described [here](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0#post-/DocumentReference)
 
-On change of an existing Appointment, send a PUT request as described [here](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0#put-/DocumentReference/-id-)(the ID used is the ID returned when the appointment was created).
+On change of an existing Appointment, send a PUT request as described [here](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0#put-/DocumentReference/-id-) (the ID used is the ID returned when the appointment was created).
 
 On cancellation of an existing Appointment either (Preferred) an update as above can be made (to change status to cancelled) or the DocumentReference can be deleted by making a DELETE call as described [here](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0#delete-/DocumentReference/-id-) (the ID used is the ID returned when the appointment was created)
 
@@ -149,13 +149,11 @@ __context SHOULD include a period set to the Appointment start and end times, e.
 }
 ```
 
-__In order to be BaRS compliant, the DocumentReference MUST include identifiers for the following three systems:__
+__In order to be BaRS compliant, the DocumentReference MUST include identifiers for the following systems:__
 * https://fhir.nhs.uk/Id/BaRS-Identifier
   * This is the identifier of the BaRS resource this pointer pertains to, in this example an appointment with an id of 8c63d621-4d86-4f57-8699-e8e22d49935d
 * https://fhir.nhs.uk/Id/dos-service-id
   * The value of the identifier with this system is determined at the time of BaRS onboarding, and allows the BaRS proxy to lookup the service in the Endpoint Catalogue.
-* https://fhir.nhs.uk/id/product-id
-  * The product id is forthcoming feature of the NRL API, it allows pointer updates to be controlled at a level below the organisation, more information can be found here. INV0025 - Authorisation: ODS vs ProductID.  The NRL team have confirmed that their work to support the Wayfinder includes this work, see CLPFEATURE-161 - Product IDs for BARs
 ```json
 "identifier": [
   {
@@ -165,13 +163,23 @@ __In order to be BaRS compliant, the DocumentReference MUST include identifiers 
   {
     "value": "2000072491",
     "system": "https://fhir.nhs.uk/Id/dos-service-id"
-  },
-  {
-    "system": "https://fhir.nhs.uk/id/product-id",
-    "value": "0B475C"
   }
 ]
 ```
+
+__In order to be BaRS compliant, the DocumentReference SHOULD include identifiers for this system:__
+* https://fhir.nhs.uk/id/product-id
+  * __For Future Consideration__ The product id is a forthcoming feature of the NRL API that we are currently building out. It allows for a different level of granularity from ODS Code. It is some months away from announcing formally, more information can be found in [the attached file](pdfs/Products%20and%20Product%20IDs.pdf) - this is an export of an internal NHS England design document, so will include broken links and is included only to give some context to the use of Product ID.
+```json
+"identifier": [
+  {
+    "system": "https://fhir.nhs.uk/id/product-id",
+    "value": "P.GH7-4TY"
+  }
+]
+```
+
+
 <a name="example"></a>
 ## Example Payload
 ```json
