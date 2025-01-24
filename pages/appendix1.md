@@ -68,8 +68,8 @@ __type MUST match one of the Document Types agreed during onboarding. e.g.__
   "coding": [
     {
       "system": "http://snomed.info/sct",
-      "code": "1363501000000100",
-      "display": "Royal College of Physicians NEWS2 (National Early Warning Score 2) chart"
+      "code": "749001000000101",
+      "display": "Appointment (record artifact)"
     }
   ]
 }
@@ -82,8 +82,8 @@ __category MUST indicate the broader class of the Document Type as agreed during
     "coding": [
       {
         "system": "http://snomed.info/sct",
-        "code": "1102421000000108",
-        "display": "Observations"
+        "code": "103390000",
+        "display": "Elective (qualifier value)"
       }
     ]
   }
