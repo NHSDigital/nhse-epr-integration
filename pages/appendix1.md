@@ -210,9 +210,9 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
   "type": {
     "coding": [
       {
-        "system": "https://snomed.info/ict",
+        "system": "http://snomed.info/sct",
         "code": "749001000000101",
-        "display": "Appointment (booking)"
+        "display": "Appointment (record artifact)"
       }
     ]
   },
@@ -220,9 +220,9 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
     {
       "coding": [
         {
-          "system": "http://ihe.net/xds/connectathon/classCodes",
-          "code": "History and Physical",
-          "display": "History and Physical"
+          "system": "http://snomed.info/sct",
+          "code": ""103390000",
+          "display": "Elective (qualifier value)"
         }
       ]
     }
