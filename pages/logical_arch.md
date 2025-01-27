@@ -26,5 +26,5 @@ Option B in __Figure 2__ assumes that such retrieval (and the management) of app
 
 _Figure 2. Logical Integration Architecture (option B)_
 
-In the following sections, the 4 integration touchpoints are described further, with the greatest focus on __(2)__ – [Signposting](appendix1.md), and __(3)__ – [Record retrieval](appendix2.md).
+In the following sections, the 4 integration touchpoints are described further, with the greatest focus on __(2)__ – [Signposting](appendix2.md), and __(3)__ – [Record retrieval](appendix3.md).
 

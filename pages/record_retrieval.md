@@ -1,6 +1,6 @@
 [Home](../readme.md)
 
-[Next - Appendix 1: Signposting (technical detail)](appendix1.md)
+[Next - Appendix 1: Authentication (technical detail)](appendix1.md)
 
 # Record Retrieval
 
@@ -20,4 +20,4 @@ This is the strategic (target) option. In this scenario, the retrieval (and the 
 
 Note that the First of Type for this option will only include the retrieval of appointment data.
 
-The low level technical detail is provided below in [Appendix 2](appendix2.md): Record retrieval (technical detail).
+The low level technical detail is provided below in [Appendix 3](appendix3.md): Record retrieval (technical detail).

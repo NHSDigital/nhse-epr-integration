@@ -12,4 +12,4 @@ Whilst the existing approach used in Wayfinder has some benefits, it is not part
 1.	The pointers currently stored in Wayfinder are relationship-based, meaning that the pointer only indicates that “a system has some data for a particular patient”, but it can neither provide information about how much data, nor can it allow a level of filtering (based on some additional metadata) during the look-up / discovery step. This generally leads to query-based data retrievals that (can) have unpredictable load profiles and is an approach discouraged by NHS England.
 2.	The pointers currently stored in Wayfinder are not available to any other system/service/component as they are kept in a ‘silo’ and not aligned to NHS England recommended standards.
 
-The low level technical detail is provided below in [Appendix 1](appendix1.md): Signposting (technical detail).
+The low level technical detail is provided below in [Appendix 2](appendix2.md): Signposting (technical detail).

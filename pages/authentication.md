@@ -16,3 +16,6 @@ __References__
 * NHS login [home page](https://digital.nhs.uk/services/nhs-login)
 * Detailed NHS login [developer’s guide](https://github.com/nhsconnect/nhslogin)
 * [DCB3051 standard for Identity Verification and Authentication Standard for Digital Health and Care Services](https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb3051-identity-verification-and-authentication-standard-for-digital-health-and-care-services)
+
+
+The low level technical detail is provided below in [Appendix 1](appendix1.md): Authentication (technical detail).
