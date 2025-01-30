@@ -24,7 +24,7 @@ NHS England BaRS API [^1]
 
 <a name="endpoint"></a>
 ## Endpoint
-The actual endpoints [^2] are defined in [the BaRS documentation](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0) under the Document Reference section.
+The actual endpoints [^2] are defined in [the BaRS documentation](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0) under the Document Reference section. __NB: That documentation currently contains some known errors and is under active review.__
 
 On creating a new Appointment, send a POST request as described [here](https://digital.nhs.uk/developer/api-catalogue/booking-and-referral-fhir/v1_1_0#post-/DocumentReference)
 
@@ -38,10 +38,21 @@ Uses Application Restricted as defined [here](https://digital.nhs.uk/developer/g
 
 <a name="payload"></a>
 ## Payload
-The payload for POST and PUT is a standard FHIR R4 DocumentReference with some specific restrictions defined [here](https://digital.nhs.uk/developer/api-catalogue/national-record-locator-fhir/v3/producer#post-/DocumentReference)
+The payload for POST and PUT is a FHIR R4 DocumentReference with some specific restrictions defined [here](https://digital.nhs.uk/developer/api-catalogue/national-record-locator-fhir/v3/producer#post-/DocumentReference)
 
 The restrictions will be determined by the BaRS programme, but in general are:
+- [subject](appendix1.md#subject)
+- [custodian](appendix1.md#custodian)
+- [type](appendix1.md#type)
+- [category](appendix1.md#category)
+- [content](appendix1.md#content)
+- [format](appendix1.md#format)
+- [author](appendix1.md#author)
+- [period](appendix1.md#period)
+- [identifier](appendix1.md#identifier)
+- [Full example](appendix1.md#example)
 
+<a name="subject"></a>
 __subject MUST be a Patient reference using a valid NHS number. e.g.__
 ```json
 "subject": {
@@ -52,6 +63,7 @@ __subject MUST be a Patient reference using a valid NHS number. e.g.__
 }
 ```
 
+<a name="custodian"></a>
 __custodian MUST be an Organization reference using a valid ODS code, agreed during onboarding. e.g.__
 ```json
 "custodian": {
@@ -62,6 +74,7 @@ __custodian MUST be an Organization reference using a valid ODS code, agreed dur
 }
 ```
 
+<a name="type"></a>
 __type MUST match one of the Document Types agreed during onboarding. e.g.__
 ```json
 "type": {
@@ -75,6 +88,7 @@ __type MUST match one of the Document Types agreed during onboarding. e.g.__
 }
 ```
 
+<a name="category"></a>
 __category MUST indicate the broader class of the Document Type as agreed during onboarding.e.g.__
 ```json
 "category": [
@@ -90,6 +104,7 @@ __category MUST indicate the broader class of the Document Type as agreed during
 ]
 ```
 
+<a name="content"></a>
 __content MUST have at least one entry.__
 __Specific to this 'direct' use case - content.attachment.url MUST contain the direct URL of the appointment being registered__
 ```json
@@ -102,6 +117,7 @@ __Specific to this 'direct' use case - content.attachment.url MUST contain the d
 ]
 ```
 
+<a name="format"></a>
 __content[].format[] SHOULD be as follows, e.g.__
 ```json
 "format": {
@@ -111,6 +127,7 @@ __content[].format[] SHOULD be as follows, e.g.__
 }
 ```
 
+<a name="author"></a>
 __author SHOULD have an entry with an Organization reference using a valid ODS code.__
 ```json
 "author": [
@@ -137,6 +154,7 @@ __context MUST include a related entry containing the ASID if the document is to
 }
 ```
 
+<a name="period"></a>
 __context SHOULD include a period set to the Appointment start and end times, e.g.__
 ```json
 "context": {
@@ -147,6 +165,7 @@ __context SHOULD include a period set to the Appointment start and end times, e.
 }
 ```
 
+<a name="identifier"></a>
 __In order to be BaRS compliant, the DocumentReference MUST include identifiers for the following systems:__
 * https://fhir.nhs.uk/Id/BaRS-Identifier
   * This is the identifier of the BaRS resource this pointer pertains to, in this example an appointment with an id of 8c63d621-4d86-4f57-8699-e8e22d49935d
@@ -176,7 +195,6 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
   }
 ]
 ```
-
 
 <a name="example"></a>
 ## Example Payload
