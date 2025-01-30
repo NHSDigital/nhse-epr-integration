@@ -1,13 +1,16 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.7">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.6">
   <diagram name="Page-1" id="HHtlFshpQ32gfU4k5V_X">
-    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="819" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="42vADjcBvc1gCo-mJGIS-1" value="&amp;nbsp;Trust" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;verticalAlign=top;fontStyle=1;fillColor=#647687;strokeColor=#314354;fontSize=14;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="449" y="190" width="200" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-4" target="42vADjcBvc1gCo-mJGIS-6" edge="1">
+        <mxCell id="wC04zW4hRhxr-Yj-kQ3v-11" value="Epic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;align=left;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="480" y="210" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="42vADjcBvc1gCo-mJGIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=14;strokeColor=#333333;" parent="1" source="42vADjcBvc1gCo-mJGIS-4" target="42vADjcBvc1gCo-mJGIS-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-3" value="HL7v2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" parent="42vADjcBvc1gCo-mJGIS-2" vertex="1" connectable="0">
@@ -18,26 +21,8 @@
         <mxCell id="42vADjcBvc1gCo-mJGIS-4" value="Epic EPR" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="489" y="310" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-6" target="42vADjcBvc1gCo-mJGIS-12" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-6" value="Trust Integration Engine (TIE)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="489" y="430" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;dashed=1;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-9" target="42vADjcBvc1gCo-mJGIS-4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;dashed=1;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-9" target="42vADjcBvc1gCo-mJGIS-29" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-9" value="Produced by EPIC&lt;div&gt;Deployed on premise&lt;/div&gt;&lt;div&gt;Managed by trust&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="669" y="260" width="140" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-11" target="42vADjcBvc1gCo-mJGIS-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-11" value="Produced by 3rd party&lt;div&gt;Procured by trust&lt;br&gt;&lt;div&gt;Configured by trust&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="669" y="390" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-12" value="Pointers /&amp;nbsp;&lt;div&gt;Record Locators&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="489" y="570" width="120" height="60" as="geometry" />
@@ -81,10 +66,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-22" value="NHS App" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="19" y="210" width="120" height="60" as="geometry" />
+          <mxGeometry x="19" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-23" value="NHS login" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="239" y="210" width="120" height="60" as="geometry" />
+          <mxGeometry x="239" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;strokeWidth=2;fontSize=14;" parent="1" source="42vADjcBvc1gCo-mJGIS-26" target="42vADjcBvc1gCo-mJGIS-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -102,13 +87,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-29" value="MyChart&lt;div&gt;(Epic PFS)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="489" y="210" width="120" height="60" as="geometry" />
+          <mxGeometry x="489" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-30" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="399" y="230" width="20" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="42vADjcBvc1gCo-mJGIS-31" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="539" y="530" width="20" height="20" as="geometry" />
+          <mxGeometry x="399" y="240" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-32" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="270" y="370" width="20" height="20" as="geometry" />
@@ -121,6 +103,38 @@
         </mxCell>
         <mxCell id="42vADjcBvc1gCo-mJGIS-35" value="BaRS Proxy&lt;div&gt;(API-M)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="309" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wC04zW4hRhxr-Yj-kQ3v-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontSize=14;" parent="1" source="wC04zW4hRhxr-Yj-kQ3v-13" target="wC04zW4hRhxr-Yj-kQ3v-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wC04zW4hRhxr-Yj-kQ3v-13" value="Produced by EPIC&lt;div&gt;Deployed on premise&lt;/div&gt;&lt;div&gt;Managed by trust&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="670" y="260" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wC04zW4hRhxr-Yj-kQ3v-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontSize=14;" parent="1" source="wC04zW4hRhxr-Yj-kQ3v-15" target="42vADjcBvc1gCo-mJGIS-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wC04zW4hRhxr-Yj-kQ3v-15" value="Produced by 3rd party&lt;div&gt;Procured by trust&lt;br&gt;&lt;div&gt;Configured by trust&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="670" y="430" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="luWnccWdb9JVHSuGgIvN-4" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=15;fontColor=#000000;strokeWidth=2;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="42vADjcBvc1gCo-mJGIS-4" target="42vADjcBvc1gCo-mJGIS-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="519" y="400" />
+              <mxPoint x="420" y="400" />
+              <mxPoint x="420" y="540" />
+              <mxPoint x="549" y="540" />
+            </Array>
+            <mxPoint x="420" y="400" as="sourcePoint" />
+            <mxPoint x="560" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="luWnccWdb9JVHSuGgIvN-5" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="410" y="471" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="luWnccWdb9JVHSuGgIvN-6" value="Pointer&lt;br&gt;Management" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=14;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="469.99952380952374" y="540" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

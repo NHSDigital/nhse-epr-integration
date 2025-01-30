@@ -81,9 +81,9 @@ __category MUST indicate the broader class of the Document Type as agreed during
   {
     "coding": [
       {
-        "system": "http://snomed.info/sct",
-        "code": "103390000",
-        "display": "Elective (qualifier value)"
+        "system": "http://ihe.net/xds/connectathon/classCodes",
+        "code": "History and Physical",
+        "display": "History and Physical"
       }
     ]
   }
@@ -102,15 +102,13 @@ __Specific to this 'direct' use case - content.attachment.url MUST contain the d
 ]
 ```
 
-__content[].format[] SHOULD indicate whether the data is structured or not, e.g.__
+__content[].format[] SHOULD be as follows, e.g.__
 ```json
-"format": [
-  {
-    "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode",
-    "code": "urn:nhs-ic:unstructured"
-    "display": "Unstructured document"
-  }
-]
+"format": {
+  "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+  "code": "urn:ihe:pcc:handp:2008",
+  "display": "History and Physical Specification"
+}
 ```
 
 __author SHOULD have an entry with an Organization reference using a valid ODS code.__
@@ -220,9 +218,9 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
     {
       "coding": [
         {
-          "system": "http://snomed.info/sct",
-          "code": ""103390000",
-          "display": "Elective (qualifier value)"
+          "system": "http://ihe.net/xds/connectathon/classCodes",
+          "code": ""History and Physical",
+          "display": "History and Physical"
         }
       ]
     }
@@ -243,31 +241,21 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
   "content": [
     {
       "attachment": {
+        "contentType": "application/fhir+json",
         "language": "en-UK",
-        "url": "https://api.example.com/booking-and-referral/FHIR/R4/Appointment/8c63d621-4d86-4f57-8699-e8e22d49935d",
-        "creation": "2005-12-24T09:35:00+11:00"
+        "url": "https://api.example.com/booking-and-referral/FHIR/R4/Appointment/8c63d621-4d86-4f57-8699-e8e22d49935d"
       },
-      "format": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
-              "code": "booking-request"
-            },
-            {
-              "system": "https://fhir.nhs.uk/CodeSystem/message-category-servicerequest",
-              "code": "referral",
-              "display": "Transfer of Care"
-            }
-          ]
-        }
-      ]
+      "format": {
+        "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+        "code": "urn:ihe:pcc:handp:2008",
+        "display": "History and Physical Specification"
+      }
     }
   ],
   "context": {
     "period": {
-      "start": "2020-11-10T19:57:26.961Z",
-      "end": "2021-11-20T19:57:26.961Z"
+      "start": "2025-01-15T09:50:00Z",
+      "end": "2025-01-15T10:00:00Z"
     },
     "practiceSetting": {
       "coding": [
