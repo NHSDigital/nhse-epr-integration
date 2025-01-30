@@ -105,9 +105,9 @@ __Specific to this 'direct' use case - content.attachment.url MUST contain the d
 __content[].format[] SHOULD be as follows, e.g.__
 ```json
 "format": {
-  "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-  "code": "urn:ihe:pcc:handp:2008",
-  "display": "History and Physical Specification"
+  "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
+  "code": "booking-request",
+  "display": "Booking Request - Request"
 }
 ```
 
@@ -246,9 +246,9 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
         "url": "https://api.example.com/booking-and-referral/FHIR/R4/Appointment/8c63d621-4d86-4f57-8699-e8e22d49935d"
       },
       "format": {
-        "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-        "code": "urn:ihe:pcc:handp:2008",
-        "display": "History and Physical Specification"
+        "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
+        "code": "booking-request",
+        "display": "Booking Request - Request"
       }
     }
   ],
