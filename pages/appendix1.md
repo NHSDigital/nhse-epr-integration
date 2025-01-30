@@ -46,10 +46,11 @@ The restrictions will be determined by the BaRS programme, but in general are:
 - [type](appendix1.md#type)
 - [category](appendix1.md#category)
 - [content](appendix1.md#content)
-- [format](appendix1.md#format)
+- [content.format](appendix1.md#format)
 - [author](appendix1.md#author)
-- [period](appendix1.md#period)
+- [context.period](appendix1.md#period)
 - [identifier](appendix1.md#identifier)
+- optional [identifier](appendix1.md#optionalidentifier)
 - [Full example](appendix1.md#example)
 
 <a name="subject"></a>
@@ -184,6 +185,7 @@ __In order to be BaRS compliant, the DocumentReference MUST include identifiers 
 ]
 ```
 
+<a name="optionalidentifier"></a>
 __In order to be BaRS compliant, the DocumentReference SHOULD include identifiers for this system:__
 * https://fhir.nhs.uk/id/product-id
   * __For Future Consideration__ The product id is a forthcoming feature of the NRL API that we are currently building out. It allows for a different level of granularity from ODS Code. It is some months away from announcing formally, more information can be found in [the attached file](pdfs/Products%20and%20Product%20IDs.pdf) - this is an export of an internal NHS England design document, so will include broken links and is included only to give some context to the use of Product ID.
