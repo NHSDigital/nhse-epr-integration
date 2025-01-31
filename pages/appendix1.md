@@ -239,7 +239,7 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
       "coding": [
         {
           "system": "http://ihe.net/xds/connectathon/classCodes",
-          "code": ""History and Physical",
+          "code": "History and Physical",
           "display": "History and Physical"
         }
       ]
