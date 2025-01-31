@@ -13,3 +13,41 @@ Whilst the existing approach used in Wayfinder has some benefits, it is not part
 2.	The pointers currently stored in Wayfinder are not available to any other system/service/component as they are kept in a ‘silo’ and not aligned to NHS England recommended standards.
 
 The low level technical detail is provided below in [Appendix 1](appendix1.md): Signposting (technical detail).
+
+## Direct Signposting
+```mermaid
+sequenceDiagram
+    box Trust
+        participant Epic
+    end
+    box NHS England Internal - Handled by NRL
+        participant NRL
+    end
+    Epic->>NRL: POST /DocumentReference
+    activate Epic
+    activate NRL
+    NRL-->>Epic: 201 Created
+    deactivate NRL
+    deactivate Epic
+```
+## Signposting via BaRS
+```mermaid
+sequenceDiagram
+    box Trust
+        participant Epic
+    end
+    box NHS England Internal - Handled by BaRS
+        participant BaRS
+        participant NRL
+    end
+    Epic->>BaRS: POST /DocumentReference
+    activate Epic
+    activate BaRS
+    BaRS->>NRL: POST: /DocumentReference
+    activate NRL
+    NRL-->>BaRS: 201 Created
+    deactivate NRL
+    BaRS-->>Epic: 201 Created
+    deactivate BaRS
+    deactivate Epic
+```
