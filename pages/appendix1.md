@@ -49,6 +49,7 @@ The restrictions will be determined by the BaRS programme, but in general are:
 - [content.format](appendix1.md#format)
 - [author](appendix1.md#author)
 - [context.period](appendix1.md#period)
+- [context.practicesetting](appendix1.md#practicesetting)
 - [identifier](appendix1.md#identifier)
 - optional [identifier](appendix1.md#optionalidentifier)
 - [Full example](appendix1.md#example)
@@ -198,6 +199,21 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
 ]
 ```
 
+<a name="practicesetting"></a>
+__context.practiceSetting MUST include a coded Clinical Specialty for the Appointment, e.g. NB: The system is likely to be SNOMED but to be confirmed __
+```json
+"context": {
+  "practiceSetting": {
+    "coding": [
+      {
+        "system": "system": "http://snomed.info/sct",
+        "code": "394802001",
+        "display": "General medicine (qualifier value)"
+    }
+    ]
+  }
+}
+```
 <a name="example"></a>
 ## Example Payload
 ```json
