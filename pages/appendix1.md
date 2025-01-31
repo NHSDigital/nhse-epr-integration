@@ -200,7 +200,7 @@ __In order to be BaRS compliant, the DocumentReference SHOULD include identifier
 ```
 
 <a name="practicesetting"></a>
-__context.practiceSetting MUST include a coded Clinical Specialty for the Appointment, e.g. NB: The system is likely to be SNOMED but to be confirmed __
+__context.practiceSetting MUST include a coded Clinical Specialty for the Appointment, e.g. NB: The system is likely to be SNOMED but to be confirmed__
 ```json
 "context": {
   "practiceSetting": {
