@@ -71,7 +71,7 @@ __custodian MUST be an Organization reference using a valid ODS code, agreed dur
 "custodian": {
   "identifier": {
     "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-    "value": "Y05868"
+    "value": "RGT"
   }
 }
 ```
@@ -136,7 +136,8 @@ __author SHOULD have an entry with an Organization reference using a valid ODS c
   {
     "identifier": {
       "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "Y05868"
+      "value": "RGT",
+      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
     }
   }
 ]
@@ -267,11 +268,20 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
       "value": "9876543210"
     }
   },
+  "author": [
+    {
+      "identifier": {
+        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value": "RGT".
+        "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+      }
+    }
+  ],
   "custodian": {
     "identifier": {
       "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "X26",
-      "display": "NHS ENGLAND - X26"
+      "value": "RGT",
+      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
     }
   },
   "content": [
