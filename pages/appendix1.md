@@ -206,7 +206,7 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
   "practiceSetting": {
     "coding": [
       {
-        "system": "system": "http://snomed.info/sct",
+        "system": "http://snomed.info/sct",
         "code": "394802001",
         "display": "General medicine (qualifier value)"
     }
@@ -296,9 +296,9 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
     "practiceSetting": {
       "coding": [
         {
-          "system": "http://www.ihe.net/xds/connectathon/practiceSettingCodes",
-          "code": "General Medicine",
-          "display": "General Medicine"
+          "system": "http://snomed.info/sct",
+          "code": "394802001",
+          "display": "General medicine (qualifier value)"
         }
       ]
     }
