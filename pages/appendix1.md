@@ -67,6 +67,8 @@ __subject MUST be a Patient reference using a valid NHS number. e.g.__
 
 <a name="custodian"></a>
 __custodian MUST be an Organization reference using a valid ODS code, agreed during onboarding. e.g.__
+
+This refers to __the Trust__ that the Appointment is at.
 ```json
 "custodian": {
   "identifier": {
@@ -131,6 +133,8 @@ __content[].format[] SHOULD be as follows, e.g.__
 
 <a name="author"></a>
 __author SHOULD have an entry with an Organization reference using a valid ODS code.__
+
+This refers to __the Trust__ that the Appointment is at.
 ```json
 "author": [
   {
