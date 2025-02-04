@@ -87,8 +87,7 @@ This refers to __the Trust__ that the Appointment is at.
   {
     "identifier": {
       "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "RGT",
-      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+      "value": "RGT"
     }
   }
 ]
