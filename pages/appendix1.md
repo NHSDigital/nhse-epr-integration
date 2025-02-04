@@ -43,11 +43,11 @@ The payload for POST and PUT is a FHIR R4 DocumentReference with some specific r
 The restrictions will be determined by the BaRS programme, but in general are:
 - [subject](appendix1.md#subject)
 - [custodian](appendix1.md#custodian)
+- [author](appendix1.md#author)
 - [type](appendix1.md#type)
 - [category](appendix1.md#category)
 - [content](appendix1.md#content)
 - [content.format](appendix1.md#format)
-- [author](appendix1.md#author)
 - [context.period](appendix1.md#period)
 - [context.practicesetting](appendix1.md#practicesetting)
 - [identifier](appendix1.md#identifier)
@@ -78,6 +78,22 @@ This refers to __the Trust__ that the Appointment is at.
 }
 ```
 
+<a name="author"></a>
+__author SHOULD have an entry with an Organization reference using a valid ODS code.__
+
+This refers to __the Trust__ that the Appointment is at.
+```json
+"author": [
+  {
+    "identifier": {
+      "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+      "value": "RGT",
+      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+    }
+  }
+]
+```
+
 <a name="type"></a>
 __type MUST match one of the Document Types agreed during onboarding. e.g.__
 ```json
@@ -99,9 +115,9 @@ __category MUST indicate the broader class of the Document Type as agreed during
   {
     "coding": [
       {
-        "system": "http://ihe.net/xds/connectathon/classCodes",
-        "code": "History and Physical",
-        "display": "History and Physical"
+        "system": "http://snomed.info/sct",
+        "code": "419891008",
+        "display": "Record artifact (record artifact)"
       }
     ]
   }
@@ -109,55 +125,24 @@ __category MUST indicate the broader class of the Document Type as agreed during
 ```
 
 <a name="content"></a>
-__content MUST have at least one entry.__
-__Specific to this 'direct' use case - content.attachment.url MUST contain the direct URL of the appointment being registered__
+__content MUST have exactly one entry - content[0].attachment.url MUST contain the direct URL of the appointment being registered__
 ```json
 "content": [
   {
     "attachment": {
-      "url": "http://example.org/api/FHIR/R4/Appointment/{ID}"
+      "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
     }
   }
 ]
 ```
 
 <a name="format"></a>
-__content[].format[] SHOULD be as follows, e.g.__
+__content[0].format[] MUST be as follows THIS IS SUBJECT TO CHANGE, WILL BE VERIFIED SHORTLY__
 ```json
 "format": {
   "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
   "code": "booking-request",
   "display": "Booking Request - Request"
-}
-```
-
-<a name="author"></a>
-__author SHOULD have an entry with an Organization reference using a valid ODS code.__
-
-This refers to __the Trust__ that the Appointment is at.
-```json
-"author": [
-  {
-    "identifier": {
-      "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "RGT",
-      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
-    }
-  }
-]
-```
-
-__context MUST include a related entry containing the ASID if the document is to be accessed via SSP, e.g. - NOT REQUIRED IN THIS CASE__
-```json
-"context": {
-  "related": [
-    {
-      "identifier": {
-        "system": "https://fhir.nhs.uk/Id/nhsSpineASID",
-        "value": "230811201350"
-      }
-    }
-  ]
 }
 ```
 
@@ -224,25 +209,18 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
 ```json
 {
   "resourceType": "DocumentReference",
-  "id": "Yorkshire Ambulance Service|423456781055",
-  "masterIdentifier": [
-    {
-      "system": "urn:ietf:rfc:3986",
-      "value": "urn:uuid:27e2b1c8-ecd8-48f8-9958-8e614cc7ad73"
-    }
-  ],
   "identifier": [
     {
       "system": "https://fhir.nhs.uk/Id/BaRS-Identifier",
-      "value": "8c63d621-4d86-4f57-8699-e8e22d49935d"
+      "value": "GL0-DZOqD39"
     },
     {
-      "value": "2000072491",
-      "system": "https://fhir.nhs.uk/Id/dos-service-id"
+      "system": "https://fhir.nhs.uk/Id/dos-service-id",
+      "value": "2000072491"
     },
     {
       "system": "https://fhir.nhs.uk/id/product-id",
-      "value": "0B475C"
+      "value": "P.GH7-4TY"
     }
   ],
   "status": "current",
@@ -259,9 +237,9 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
     {
       "coding": [
         {
-          "system": "http://ihe.net/xds/connectathon/classCodes",
-          "code": "History and Physical",
-          "display": "History and Physical"
+          "system": "http://snomed.info/sct",
+          "code": "419891008",
+          "display": "Record artifact (record artifact)"
         }
       ]
     }
@@ -269,31 +247,28 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
   "subject": {
     "identifier": {
       "system": "https://fhir.nhs.uk/Id/nhs-number",
-      "value": "9876543210"
+      "value": "9693893123"
     }
   },
   "author": [
     {
       "identifier": {
         "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-        "value": "RGT".
-        "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        "value": "RGT"
       }
     }
   ],
   "custodian": {
     "identifier": {
       "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "RGT",
-      "display": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+      "value": "RGT"
     }
   },
   "content": [
     {
       "attachment": {
         "contentType": "application/fhir+json",
-        "language": "en-UK",
-        "url": "https://api.example.com/booking-and-referral/FHIR/R4/Appointment/8c63d621-4d86-4f57-8699-e8e22d49935d"
+        "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
       },
       "format": {
         "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
@@ -304,8 +279,8 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
   ],
   "context": {
     "period": {
-      "start": "2025-01-15T09:50:00Z",
-      "end": "2025-01-15T10:00:00Z"
+      "start": "2025-02-01T06:45:00+00:00",
+      "end": "2025-02-01T07:00:00+00:00"
     },
     "practiceSetting": {
       "coding": [
