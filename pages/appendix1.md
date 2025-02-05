@@ -225,7 +225,7 @@ __content[0].format[] MUST be as follows THIS IS SUBJECT TO CHANGE, WILL BE VERI
 
 
 <a name="period"></a>
-__context HMUST include a period set to the Appointment start and end times, e.g.__
+__context MUST include a period set to the Appointment start and end times, e.g.__
 ```json
 "context": {
   "period": {
