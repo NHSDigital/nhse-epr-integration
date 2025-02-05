@@ -93,4 +93,6 @@ Figure 4. Integration via BaRS Proxy
 <a name="details"></a>
 ## Further low-level technical detail
 
+Before returning data, Epic MUST [validate the supplied ID Token](token_validation.md).
+
 [See Attached](pdfs/3.pdf)

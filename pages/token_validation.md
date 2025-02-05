@@ -1,9 +1,10 @@
 [Home](../readme.md)
+
 [Back to Appendix 2](appendix2.md)
 
 # Token Validation
 
-On receiving a request, Epic must validate the identity of the local patient details against the details provided in the ID token passed in header `NHSD-ID-Token`. The requirements are:
+On receiving a request, Epic must validate the identity of the local patient details against the details provided in the ID token passed in header `NHSD-ID-Token`. The valdation requirements are:
 
 | Step | Rule | Description | Standard Ref | Notes |
 |---|---|---|---|---|
