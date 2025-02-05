@@ -13,7 +13,29 @@ On receiving a request, Epic must validate the identity of the local patient det
 | 4 | Claim: Token: 'exp' | The processing of this parameter requires that the current date/time MUST be before the expiration date/time listed in the value. Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew | [OIDC 1.0  - 3.1.3.7](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) | |
 | 5 | Claim: Token: 'identity_proofing_level' | This MUST be set to "P9". Only users with Identity Level P9 are permitted to utilise the Aggregator | Doc Ref #1 | |
 | 6 | Claim: Token: 'nhs_number' | This MUST match the NHS Number as provided in the URL search parameter. Assures the request from the Aggregator is for the person having performed authentication through NHS login | N/A | |
-| 7 | Claim Token: 'birthdate' | This MUST match the date of birth held for the patient within the PEP | N/A | If value not present either as supplied from Aggregator or within PEP, treat as failure HTTP 401 Unauthorised |
+| 7 | Claim Token: 'birthdate' | This MUST match the date of birth held for the patient within the PEP | N/A | If value not present either as supplied from Aggregator or within PEP, treat as failure HTTP `401 Unauthorised` |
 
+Any failure MUST result in a `401 Unauthorised` response, and details MUST be logged along with the associated `X-Request-Id` and `X-Correlation-Id` headers.
 
-Any failure MUST result in a `401 Unauthorised` response.
+An OperationOutcome response must NOT be returned for steps #1 through #4.
+
+Where validation failure occurs is for a custom claim (step #5, #6 or #7) or where validation failure occurs for a custom reason other than those specified here, an OperationOutcome response must be returned with a description stating the reason for the failure. This is to assist service management with diagnosis. 
+
+The OperationOutcome is based on [HL7 FHIR R4 OperationOutcome](https://hl7.org/fhir/R4/operationoutcome.html)
+
+For custom claim validations the value provided in the "diagnostics" attribute should relate to the detail of the claim, e.g. "Birthdate on token does not match birthdate on subject"
+
+Where validation failure is for a custom reason other than those specified here, the value provided in the "diagnostics" attribute should relate to the detail of the validation but be preceded with "Other: ", e.g. "Other: lastname on token does not match surname on subject"
+
+## An example Operation Outcome
+```json
+{
+    "resourceType": "OperationOutcome",
+    "issue": [{
+            "severity": "error",
+            "code": "security",
+            "diagnostics": "Birthdate on token does not match birthdate on subject"
+        }
+    ]
+}
+```
