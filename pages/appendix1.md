@@ -41,56 +41,61 @@ Uses Application Restricted as defined [here](https://digital.nhs.uk/developer/g
 The payload for POST and PUT is a FHIR R4 DocumentReference with some specific restrictions defined [here](https://digital.nhs.uk/developer/api-catalogue/national-record-locator-fhir/v3/producer#post-/DocumentReference)
 
 The restrictions will be determined by the BaRS programme, but in general are:
-- [subject](appendix1.md#subject)
-- [custodian](appendix1.md#custodian)
-- [author](appendix1.md#author)
+- [identifier](appendix1.md#identifier)
+- optional [identifier](appendix1.md#optionalidentifier)
+- [status](appendix1.md#status)
 - [type](appendix1.md#type)
 - [category](appendix1.md#category)
+- [subject](appendix1.md#subject)
+- [date](appendix1.md#date)
+- [author](appendix1.md#author)
+- [custodian](appendix1.md#custodian)
 - [content](appendix1.md#content)
+- [content extension](appendix1.md#extension)
 - [content.format](appendix1.md#format)
 - [context.period](appendix1.md#period)
 - [context.practicesetting](appendix1.md#practicesetting)
-- [identifier](appendix1.md#identifier)
-- optional [identifier](appendix1.md#optionalidentifier)
 - [Full example](appendix1.md#example)
 
-<a name="subject"></a>
-__subject MUST be a Patient reference using a valid NHS number. e.g.__
+
+<a name="identifier"></a>
+__In order to be BaRS compliant, the DocumentReference MUST include identifiers for the following systems:__
+* https://fhir.nhs.uk/Id/BaRS-Identifier
+  * This is the identifier of the BaRS resource this pointer pertains to, in this example an appointment with an id of 8c63d621-4d86-4f57-8699-e8e22d49935d
+* https://fhir.nhs.uk/Id/dos-service-id
+  * The value of the identifier with this system is determined at the time of BaRS onboarding, and allows the BaRS proxy to lookup the service in the Endpoint Catalogue.
 ```json
-"subject": {
-  "identifier": {
-    "system": "https://fhir.nhs.uk/Id/nhs-number",
-    "value": "3495456481"
-  }
-}
-```
-
-<a name="custodian"></a>
-__custodian MUST be an Organization reference using a valid ODS code, agreed during onboarding. e.g.__
-
-This refers to __the Trust__ that the Appointment is at.
-```json
-"custodian": {
-  "identifier": {
-    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-    "value": "RGT"
-  }
-}
-```
-
-<a name="author"></a>
-__author SHOULD have an entry with an Organization reference using a valid ODS code.__
-
-This refers to __the Trust__ that the Appointment is at.
-```json
-"author": [
+"identifier": [
   {
-    "identifier": {
-      "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "RGT"
-    }
+    "system": "https://fhir.nhs.uk/Id/BaRS-Identifier",
+    "value": "8c63d621-4d86-4f57-8699-e8e22d49935d"
+  },
+  {
+    "value": "2000072491",
+    "system": "https://fhir.nhs.uk/Id/dos-service-id"
   }
 ]
+```
+
+
+<a name="optionalidentifier"></a>
+__In order to be BaRS compliant, the DocumentReference SHOULD include identifiers for this system:__
+* https://fhir.nhs.uk/id/product-id
+  * __For Future Consideration__ The product id is a forthcoming feature of the NRL API that we are currently building out. It allows for a different level of granularity from ODS Code. It is some months away from announcing formally, more information can be found in [the attached file](pdfs/Products%20and%20Product%20IDs.pdf) - this is an export of an internal NHS England design document, so will include broken links and is included only to give some context to the use of Product ID.
+```json
+"identifier": [
+  {
+    "system": "https://fhir.nhs.uk/id/product-id",
+    "value": "P.GH7-4TY"
+  }
+]
+```
+
+
+<a name="status"></a>
+__status MUST reflect the status of the DocumentReference. This is expected to always be current__
+```json
+"status": "current"
 ```
 
 <a name="type"></a>
@@ -123,6 +128,58 @@ __category MUST indicate the broader class of the Document Type as agreed during
 ]
 ```
 
+
+<a name="subject"></a>
+__subject MUST be a Patient reference using a valid NHS number. e.g.__
+```json
+"subject": {
+  "identifier": {
+    "system": "https://fhir.nhs.uk/Id/nhs-number",
+    "value": "3495456481"
+  }
+}
+```
+
+
+<a name="date"></a>
+__date MUST be set to the instant the DocumentReference was created__
+```json
+"date": "2025-02-05T08:25:13.136693+00:00"
+```
+
+
+<a name="author"></a>
+__author SHOULD have an entry with an Organization reference using a valid ODS code.__
+
+This refers to __the Trust__ that the Appointment is at.
+```json
+"author": [
+  {
+    "identifier": {
+      "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+      "value": "RGT"
+    }
+  }
+]
+```
+
+
+<a name="custodian"></a>
+__custodian MUST be an Organization reference using a valid ODS code, agreed during onboarding. e.g.__
+
+This refers to __the Trust__ that the Appointment is at.
+```json
+"custodian": {
+  "identifier": {
+    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+    "value": "RGT"
+  }
+}
+```
+
+
+
+
 <a name="content"></a>
 __content MUST have exactly one entry - content[0].attachment.url MUST contain the direct URL of the appointment being registered__
 ```json
@@ -135,6 +192,27 @@ __content MUST have exactly one entry - content[0].attachment.url MUST contain t
 ]
 ```
 
+
+<a name="extension"></a>
+__content[0] MUST include the Extension: `https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability` with the value of `static`__
+```json
+"extension": [
+  {
+    "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability",
+    "valueCodeableConcept": {
+      "coding": [
+        {
+          "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability",
+          "code": "static",
+          "display": "Static"
+        }
+      ]
+    }
+  }
+]
+```
+
+
 <a name="format"></a>
 __content[0].format[] MUST be as follows THIS IS SUBJECT TO CHANGE, WILL BE VERIFIED SHORTLY__
 ```json
@@ -145,8 +223,9 @@ __content[0].format[] MUST be as follows THIS IS SUBJECT TO CHANGE, WILL BE VERI
 }
 ```
 
+
 <a name="period"></a>
-__context SHOULD include a period set to the Appointment start and end times, e.g.__
+__context HMUST include a period set to the Appointment start and end times, e.g.__
 ```json
 "context": {
   "period": {
@@ -156,40 +235,9 @@ __context SHOULD include a period set to the Appointment start and end times, e.
 }
 ```
 
-<a name="identifier"></a>
-__In order to be BaRS compliant, the DocumentReference MUST include identifiers for the following systems:__
-* https://fhir.nhs.uk/Id/BaRS-Identifier
-  * This is the identifier of the BaRS resource this pointer pertains to, in this example an appointment with an id of 8c63d621-4d86-4f57-8699-e8e22d49935d
-* https://fhir.nhs.uk/Id/dos-service-id
-  * The value of the identifier with this system is determined at the time of BaRS onboarding, and allows the BaRS proxy to lookup the service in the Endpoint Catalogue.
-```json
-"identifier": [
-  {
-    "system": "https://fhir.nhs.uk/Id/BaRS-Identifier",
-    "value": "8c63d621-4d86-4f57-8699-e8e22d49935d"
-  },
-  {
-    "value": "2000072491",
-    "system": "https://fhir.nhs.uk/Id/dos-service-id"
-  }
-]
-```
-
-<a name="optionalidentifier"></a>
-__In order to be BaRS compliant, the DocumentReference SHOULD include identifiers for this system:__
-* https://fhir.nhs.uk/id/product-id
-  * __For Future Consideration__ The product id is a forthcoming feature of the NRL API that we are currently building out. It allows for a different level of granularity from ODS Code. It is some months away from announcing formally, more information can be found in [the attached file](pdfs/Products%20and%20Product%20IDs.pdf) - this is an export of an internal NHS England design document, so will include broken links and is included only to give some context to the use of Product ID.
-```json
-"identifier": [
-  {
-    "system": "https://fhir.nhs.uk/id/product-id",
-    "value": "P.GH7-4TY"
-  }
-]
-```
 
 <a name="practicesetting"></a>
-__context.practiceSetting MUST include a coded Clinical Specialty for the Appointment, e.g. NB: The system is likely to be SNOMED but to be confirmed__
+__context.practiceSetting MUST include a coded Clinical Specialty for the Appointment, This code must be a child of `394658006|Clinical speciality` e.g.__
 ```json
 "context": {
   "practiceSetting": {
@@ -249,6 +297,7 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
       "value": "9693893123"
     }
   },
+  "date": "2025-02-05T08:25:13.136693+00:00",
   "author": [
     {
       "identifier": {
@@ -265,6 +314,20 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
   },
   "content": [
     {
+      "extension": [
+        {
+          "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability",
+                "code": "static",
+                "display": "Static"
+              }
+            ]
+          }
+        }
+      ],
       "attachment": {
         "contentType": "application/fhir+json",
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
