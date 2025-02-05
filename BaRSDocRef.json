@@ -41,6 +41,7 @@
       "value": "9693893123"
     }
   },
+  "date": "2025-02-05T08:25:13.136693+00:00",
   "author": [
     {
       "identifier": {
@@ -57,6 +58,20 @@
   },
   "content": [
     {
+      "extension": [
+        {
+          "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLContentStability",
+                "code": "static",
+                "display": "Static"
+              }
+            ]
+          }
+        }
+      ],
       "attachment": {
         "contentType": "application/fhir+json",
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
