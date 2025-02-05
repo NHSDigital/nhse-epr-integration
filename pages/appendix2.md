@@ -49,7 +49,7 @@ FHIR UK Core R4 Appointment as defined [here](https://simplifier.net/packages/hl
 | `X-Correlation-Id` | An ID that can be used internally by the client to correlate to internal business processes. | UUID |
 | `NHSD-Target-Identifier` | This is the JSON of the Identifier with system of https://fhir.nhs.uk/Id/dos-service-id | Base64 encoded JSON object |
 | `NHSD-End-User-Organisation` | Requesting Organization described in an object based on a FHIR 'Organization' resource (Base64 encoded JSON). | Base64 encoded JSON object |
-
+| `NHSD-ID-Token` | This is the ID token of the App user / Patient | JWT |
 
 
 Example (unencoded) `NHSD-Target-Identifier`:
