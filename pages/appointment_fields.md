@@ -18,6 +18,71 @@ __Description__
 
 FHIR Appointment resource type, part of the FHIR spec.
 
+A Fixed value of `Appointment`
+
+## extension
+See [Simplifier](https://simplifier.net/wayfinder-patient-care-aggregator/wayfinderukcoreappointment)
+
+NB: While the extensions below are numbered, they are not necessarily in a fixed order.
+### extension[0]
+[https://fhir.nhs.uk/StructureDefinition/Extension-ServiceRequest-Priority](https://simplifier.net/wayfinder-patient-care-aggregator/extensionwayfinderservicerequestpriority-duplicate-2)
+
+__Optional__
+
+__Description__
+A value from [this set](https://simplifier.net/wayfinder-patient-care-aggregator/extensionwayfinderservicerequestpriority-duplicate-2):
+- URGENT
+- ROUTINE
+- TWO_WEEK_WAIT
+
+Used specifically for Appointments in eRS which have a specific priority assigned.
+
+* Not used in Wayfinder
+* Not supported by Epic
+
+### extension[1]
+[https://fhir.nhs.uk/StructureDefinition/Extension-Appointment-RequestStatus](https://simplifier.net/wayfinder-patient-care-aggregator/extensionwayfinderappointmentrequeststatus-duplicate-2)
+
+__Optional__
+
+__Description__
+A value from this set:
+- Pending Change
+- Pending Reschedule
+- Pending Cancellation
+- Confirmed Attendance
+
+Extension if 'dumb booking' is supported e.g. when a patient requests to cancel an appointment but the source system status is still booked.
+
+* Not used in Wayfinder
+* Not supported by Epic
+
+### extension[2]
+[https://fhir.nhs.uk/StructureDefinition/Extension-Consultation-Medium](https://simplifier.net/wayfinder-patient-care-aggregator/extensionwayfinderconsultationmedium)
+
+__Optional__
+
+__Description__
+
+A value from this set:
+- FACE_TO_FACE
+- VIRTUAL
+
+* not used currently by Wayfinder - desire to use in the future
+* Not supported by Epic
+
+### extension[3]
+[https://fhir.nhs.uk/StructureDefinition/Extension-Portal-Link](https://simplifier.net/wayfinder-patient-care-aggregator/extensionwayfinderportallink)
+
+__Optional__
+
+__Description__
+
+A URL - Extension for Deeplink to the Appointment in a Patient Facing service.
+* Used in Wayfinder t olink out from Appointment in a list to the Appointment details in a PEP.
+* Not supported by Epic
+* It is assumed this can be constructed from a fixed value per Trust plus the `value` of the Identifer with system `urn:oid:1.2.840.114350.1.13.5325.1.7.3.698084.8`, see [Identifiers](appointment_fields.md#identifiers)
+
 ## identifiers
 __Optional__
 
