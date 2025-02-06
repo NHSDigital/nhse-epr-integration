@@ -95,4 +95,6 @@ Figure 4. Integration via BaRS Proxy
 
 Before returning data, Epic MUST [validate the supplied ID Token](token_validation.md).
 
+Appointment resource [field by field assessment](appointment_fields.md).
+
 [See Attached](pdfs/3.pdf)
