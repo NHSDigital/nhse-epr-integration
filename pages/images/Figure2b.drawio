@@ -1,0 +1,137 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="HHtlFshpQ32gfU4k5V_X">
+        <mxGraphModel dx="1225" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="39" value="&amp;nbsp;Trust" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;verticalAlign=top;fontStyle=1;fillColor=#647687;strokeColor=#314354;fontSize=14;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="466" y="210" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Epic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;align=left;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="497" y="230" width="140" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Epic EPR" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="506" y="330" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Trust Integration Engine (TIE)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="506" y="450" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="NRL Pointers /&amp;nbsp;&lt;div&gt;Record Locators&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="507" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="48" target="73">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Look-up" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" vertex="1" connectable="0" parent="44">
+                    <mxGeometry x="0.0694" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;curved=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="48" target="65">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Retrieve&lt;div&gt;(and manage)&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=14;" vertex="1" connectable="0" parent="46">
+                    <mxGeometry x="-0.108" relative="1" as="geometry">
+                        <mxPoint x="50" y="24" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="Wayfinder&amp;nbsp;&lt;div&gt;Aggregator&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="236" y="450" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="53" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;fontSize=14;" edge="1" parent="1" source="53" target="48">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="53" target="60">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="126" y="170"/>
+                            <mxPoint x="536" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="jump-off" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" vertex="1" connectable="0" parent="51">
+                    <mxGeometry x="0.0589" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="NHS App" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="36" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="NHS login" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="256" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="57" target="53">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="57" target="60">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Patient" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="306" y="40" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="60" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="60" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="MyChart&lt;div&gt;(Epic PFS)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="506" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="416" y="260" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="287" y="390" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="216" y="160" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=14;" edge="1" parent="1" source="65" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="BaRS Proxy&lt;div&gt;(API-M)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="326" y="330" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontSize=14;" edge="1" parent="1" source="67" target="40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Produced by EPIC&lt;div&gt;Deployed on premise&lt;/div&gt;&lt;div&gt;Managed by trust&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="687" y="280" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontSize=14;" edge="1" parent="1" source="69" target="42">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="627" y="480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="Produced by 3rd party&lt;div&gt;Procured by trust&lt;br&gt;&lt;div&gt;Configured by trust&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="687" y="450" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Pointer&lt;/span&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Management&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=15;fontColor=#000000;strokeWidth=2;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="41" target="73">
+                    <mxGeometry x="0.4233" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="536" y="420"/>
+                            <mxPoint x="437" y="420"/>
+                            <mxPoint x="437" y="585"/>
+                        </Array>
+                        <mxPoint x="437" y="420" as="sourcePoint"/>
+                        <mxPoint x="577" y="560" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;strokeColor=#005700;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="427" y="491" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="" style="edgeStyle=none;html=1;strokeWidth=2;" edge="1" parent="1" source="73" target="43">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="BaRS Proxy&lt;div&gt;(API-M)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="506" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
