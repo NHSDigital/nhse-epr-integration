@@ -4,9 +4,11 @@ The tactical approach is to perpetuate the Wayfinder __Record Service__ approach
 
 This contains a record to represent each time a patient is registered in a Trust.
 
-In the below, some assumptions are:
+In the below, some assumptions (to be clarified) are:
 
-* 
+* The call to `/Patient$match` happens at this point, rather than storing the local id in the Record Service.
+* Are there more ?
+
 
 ## Lookup and Retrieval via BaRS
 ```mermaid
