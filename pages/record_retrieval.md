@@ -16,6 +16,7 @@ In this scenario, Wayfinder Aggregator retrieves the records (appointment data) 
 ## Lookup and Direct Retrieval
 ```mermaid
 sequenceDiagram
+    autonumber
     box NHS England Internal
         participant NHS App
         participant Wayfinder
@@ -54,6 +55,7 @@ The low level technical detail is provided below in [Appendix 2](appendix2.md): 
 ## Lookup and Retrieval via BaRS
 ```mermaid
 sequenceDiagram
+    autonumber
     box NHS England Internal
         participant NHS App
         participant Wayfinder

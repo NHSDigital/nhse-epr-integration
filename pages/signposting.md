@@ -17,6 +17,7 @@ The low level technical detail is provided below in [Appendix 1](appendix1.md): 
 ## Direct Signposting
 ```mermaid
 sequenceDiagram
+    autonumber
     box Trust
         participant Epic
     end
@@ -33,6 +34,7 @@ sequenceDiagram
 ## Signposting via BaRS
 ```mermaid
 sequenceDiagram
+    autonumber
     box Trust
         participant Epic
     end
