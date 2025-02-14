@@ -187,7 +187,7 @@ __content MUST have exactly one entry - content[0].attachment.url MUST contain t
   {
     "attachment": {
       "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39",
-      "contentType": "application/fhir+json"
+      "contentType": "application/fhir+json;version=1.1.0"
     }
   }
 ]
@@ -330,7 +330,7 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
         }
       ],
       "attachment": {
-        "contentType": "application/fhir+json",
+        "contentType": "application/fhir+json;version=1.1.0",
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
       },
       "format": {

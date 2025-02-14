@@ -73,7 +73,7 @@
         }
       ],
       "attachment": {
-        "contentType": "application/fhir+json",
+        "contentType": "application/fhir+json;version=1.1.0",
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
       },
       "format": {
