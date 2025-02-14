@@ -149,7 +149,7 @@ __date MUST be set to the instant the DocumentReference was created__
 
 
 <a name="author"></a>
-__author SHOULD have an entry with an Organization reference using a valid ODS code.__
+__author MUST have an entry with an Organization reference using a valid ODS code.__
 
 This refers to __the Trust__ that the Appointment is at.
 ```json
@@ -181,12 +181,13 @@ This refers to __the Trust__ that the Appointment is at.
 
 
 <a name="content"></a>
-__content MUST have exactly one entry - content[0].attachment.url MUST contain the direct URL of the appointment being registered__
+__content MUST have exactly one entry - content[0].attachment.url MUST contain the direct URL of the appointment being registered and content[0].attachement.contentType MUST be populated__
 ```json
 "content": [
   {
     "attachment": {
-      "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
+      "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39",
+      "contentType": "application/fhir+json"
     }
   }
 ]
@@ -194,7 +195,7 @@ __content MUST have exactly one entry - content[0].attachment.url MUST contain t
 
 
 <a name="extension"></a>
-__content[0] MUST include the Extension: `https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability` with the value of `static`__
+__content[0] MUST include the Extension: `https://fhir.nhs.uk/England/StructureDefinition/Extension-England-ContentStability` with the code/display values of `static/Static` or `dynamic/Dynamic`__
 ```json
 "extension": [
   {
@@ -214,12 +215,12 @@ __content[0] MUST include the Extension: `https://fhir.nhs.uk/England/StructureD
 
 
 <a name="format"></a>
-__content[0].format[] MUST be as follows THIS IS SUBJECT TO CHANGE, WILL BE VERIFIED SHORTLY__
+__content[0].format[] MUST be as follows__
 ```json
 "format": {
-  "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
-  "code": "booking-request",
-  "display": "Booking Request - Request"
+  "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode",
+  "code": "urn:nhs-ic:structured",
+  "display": "Structured Document"
 }
 ```
 
@@ -333,9 +334,9 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
       },
       "format": {
-        "system": "https://fhir.nhs.uk/CodeSystem/message-events-bars",
-        "code": "booking-request",
-        "display": "Booking Request - Request"
+        "system": "https://fhir.nhs.uk/England/CodeSystem/England-NRLFormatCode",
+        "code": "urn:nhs-ic:structured",
+        "display": "Structured Document"
       }
     }
   ],
@@ -364,25 +365,10 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
 | --- | --- | --- |
 | `X-Request-Id` | An ID for the request, this is mirrored back in the response. | UUID |
 | `X-Correlation-Id` | An ID that can be used internally by the client to correlate to internal business processes. | UUID |
-| `NHSD-End-User-Organisation` | Requesting Organization described in an object based on a FHIR 'Organization' resource (Base64 encoded JSON). | Base64 encoded JSON object |
+| `NHSD-End-User-Organisation-ODS` | Requesting Organization ODS Code. | String |
+| `accept` | Must be `application/fhir+json;version=1.1.0` | String |
+| `content-type` | Must descibe the payload e.g. `application/fhir+json;version=1.1.0` | String |
 
-Example (unencoded) `NHSD-End-User-Organisation`:
-```json
-{
-  "resourceType": "Organization",
-  "identifier": [
-    {
-      "https://fhir.nhs.uk/Id/ods-organization-code",
-      "value": "X26"
-    },
-  "name": "NHS ENGLAND - X26"
-  ]
-}
-```
-Example (Base64 encoded) `NHSD-End-User-Organisation`:
-`ewrCoCAicmVzb3VyY2VUeXBlIjogIk9yZ2FuaXphdGlvbiIsCsKgICJpZGVudGlmaWVyIjogW
-wrCoCDCoCB7CsKgIMKgIMKgICJodHRwczovL2ZoaXIubmhzLnVrL0lkL29kcy1vcmdhbml6YXRpb24tY29kZSIsCsKgIMK
-gIMKgICJ2YWx1ZSI6ICJYMjYiCgoKwqAgwqAgfSwKwqAgIm5hbWUiOiAiTkhTIEVOR0xBTkQgLSBYMjYiCsKgIF0KfQ==` 
 
 ![Uploading pointers using BaRS Proxy](images/Figure3.svg)
 Figure 3. Uploading pointers to NRL using BaRS Proxy
