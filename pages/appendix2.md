@@ -47,9 +47,9 @@ FHIR UK Core R4 Appointment as defined [here](https://simplifier.net/packages/hl
 | --- | --- | --- |
 | `X-Request-Id` | An ID for the request, this is mirrored back in the response. | UUID |
 | `X-Correlation-Id` | An ID that can be used internally by the client to correlate to internal business processes. | UUID |
-| `NHSD-Target-Identifier` | This is the JSON of the Identifier with system of https://fhir.nhs.uk/Id/dos-service-id | Base64 encoded JSON object |
-| `NHSD-End-User-Organisation` | Requesting Organization described in an object based on a FHIR 'Organization' resource (Base64 encoded JSON). | Base64 encoded JSON object |
-| `NHSD-ID-Token` | This is the ID token of the App user / Patient | JWT |
+| `NHSD-Target-Identifier` | This is the JSON of the Identifier with system of https://fhir.nhs.uk/Id/dos-service-id - this is obtained from the `identifier` array of the DocumentReference that points to the Appointment | Base64 encoded JSON object |
+| `NHSD-End-User-Organisation` | Requesting Organization described in an object based on a FHIR 'Organization' resource (Base64 encoded JSON). This header SHALL be populated when the request is not initiated by the App user / Patient. | Base64 encoded JSON object |
+| `NHSD-ID-Token` | This is the ID token of the App user / Patient. The BaRS proxy does NOT validate the token and passes it through to the target system | JWT |
 
 
 Example (unencoded) `NHSD-Target-Identifier`:
