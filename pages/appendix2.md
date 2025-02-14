@@ -35,7 +35,7 @@ Further actions to 'manage' the appointment are out of scope for MVP and are the
 <a name="authentication"></a>
 ## Authentication
 * Between Wayfinder Aggregator and BaRS Proxy is OAuth 2.0 Token Exchange
-* Between BaRS Proxy and Epic is Mutual TLS
+* Between BaRS Proxy and Epic is Mutual TLS. Details of the Root and SubCA that issue the BaRS proxy client certificate in the "int" environment are [published on the NHS England Path to Live Environments pages](https://digital.nhs.uk/services/path-to-live-environments/integration-environment#rootca-and-subca-certificates)
 
 <a name="payload"></a>
 ## Response Payload
