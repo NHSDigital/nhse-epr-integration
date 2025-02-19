@@ -330,7 +330,7 @@ __context.practiceSetting MUST include a coded Clinical Specialty for the Appoin
         }
       ],
       "attachment": {
-        "contentType": "application/fhir+json;version=1.1.0",
+        "contentType": "application/fhir+json",
         "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39"
       },
       "format": {
