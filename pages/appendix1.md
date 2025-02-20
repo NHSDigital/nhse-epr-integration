@@ -187,7 +187,7 @@ __content MUST have exactly one entry - content[0].attachment.url MUST contain t
   {
     "attachment": {
       "url": "https://server.fire.ly/r4/Appointment/GL0-DZOqD39",
-      "contentType": "application/fhir+json;version=1.1.0"
+      "contentType": "application/fhir+json"
     }
   }
 ]
