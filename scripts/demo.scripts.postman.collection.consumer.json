@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "18bf3577-aacc-4b13-a234-2ae344be2e1d",
+		"name": "Working Consumer",
+		"description": "# Set of calls to model a BaRS Consumer e.g. Wayfinder Aggregator\n\nFirst step is to get a valid access token for APIM, however this requires a JS library to be installed into a Global Variable using [this request](https://bars-nrl-team.postman.co/workspace/BaRS-NRL-team-Workspace~806d30ba-00e2-4c1c-93fd-d4346c11629e/request/42334382-250c02c7-eab0-41d8-a2b9-bced2158537b?action=share&source=copy-link&creator=42334382&ctx=documentation).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42334382",
+		"_collection_link": "https://bars-nrl-team.postman.co/workspace/806d30ba-00e2-4c1c-93fd-d4346c11629e/collection/42334382-18bf3577-aacc-4b13-a234-2ae344be2e1d?action=share&source=collection_link&creator=42334382"
+	},
+	"item": [
+		{
+			"name": "Install Pre-requisite library",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200)",
+							"    pm.globals.set(\"pmlib_code\", responseBody)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://joolfe.github.io/postman-util-lib/dist/bundle.js",
+					"protocol": "https",
+					"host": [
+						"joolfe",
+						"github",
+						"io"
+					],
+					"path": [
+						"postman-util-lib",
+						"dist",
+						"bundle.js"
+					]
+				},
+				"description": "Loads the required postman-util-lib from github.io and load into postman global variable.\n\nThis library is required in order to allow generation of signet JWTs in Postman scripts."
+			},
+			"response": []
+		},
+		{
+			"name": "INT GetToken",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"// Loading the library\r",
+							"eval(pm.globals.get('pmlib_code'))\r",
+							"const audience = \"https://\" + pm.globals.get(\"IntAuth\")+\"/oauth2/token\"\r",
+							"\r",
+							"var uuid = require('uuid')\r",
+							"var myjti = uuid.v4()\r",
+							"console.log(\"JTI Generated: \"+myjti)\r",
+							"\r",
+							"//decryption testing for our JWT\r",
+							"const pubkey = '-----BEGIN PUBLIC KEY-----\\n' +\r",
+							"'MIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIBCAKCAQEAhHsm4eDd2Z5n/eMNSfoe\\n' +\r",
+							"'fPWRqB6ikTZfoloQoBTJuUmbqRoXGEm7rt3K8h8ZMply+Q2tMrM+YCdZeG9Ymh8J\\n' +\r",
+							"'uK1VaWQRsGC0xUcp7uGSshMY9RTsTZ5xQfFrKKnXkqSlzmoEDQ+Xr30DoRYKGPCU\\n' +\r",
+							"'31W3d38FU5JaSwwsendIOiFGaNX5DN2YFWBY9DSkzq4XuKMl5ZuQh6km+1iiSKBc\\n' +\r",
+							"'kg/ghIXea+MhEBEfG9DtEYTC+8gJ9A9BCpaIThzJ+vB36j0IBu69VxJfn8iIYmPD\\n' +\r",
+							"'AvJUuefgzak4y2U13yoPC6MyS+l2VKfDR8YeW0xOzYbi7ysJrW0shnA9yGapQBWz\\n' +\r",
+							"'/QIBJQ==\\n' +\r",
+							"'-----END PUBLIC KEY-----\\n'\r",
+							"\r",
+							"//generate jti\r",
+							"\r",
+							"\r",
+							"// JWK used by jwt signature, from converted PEM\r",
+							" const jwk = {\r",
+							"  \"kty\": \"RSA\",\r",
+							"  \"n\": \"hHsm4eDd2Z5n_eMNSfoefPWRqB6ikTZfoloQoBTJuUmbqRoXGEm7rt3K8h8ZMply-Q2tMrM-YCdZeG9Ymh8JuK1VaWQRsGC0xUcp7uGSshMY9RTsTZ5xQfFrKKnXkqSlzmoEDQ-Xr30DoRYKGPCU31W3d38FU5JaSwwsendIOiFGaNX5DN2YFWBY9DSkzq4XuKMl5ZuQh6km-1iiSKBckg_ghIXea-MhEBEfG9DtEYTC-8gJ9A9BCpaIThzJ-vB36j0IBu69VxJfn8iIYmPDAvJUuefgzak4y2U13yoPC6MyS-l2VKfDR8YeW0xOzYbi7ysJrW0shnA9yGapQBWz_Q\",\r",
+							"  \"e\": \"JQ\",\r",
+							"  \"d\": \"DlKAvnksvZSVnugdHMEYDYJU75Sb9AXg00gBzB3sS2HnUI0y7d51J6lGX11O1QmrkIvbX21S2fZqiY9_M0GgL6QJO9N3iLCCPtdCzbeFewj7x3fiMeedipajzQtxQEkmrogAcB1cgaymckeSY4-hZECeNm6YysO2vAFQ6qUckKl9oNgBm4iB_OvZjIRUJNu7d0bFBlreIOaefAijNcciI99LMbmv5kGhSkSIl1B9WWDjZvyCqJigazGXtrm1V_SWAP8gObA5ziiK6MgVUcaAymcV6hgeOrsygGR8Rz49sGQLn54c6kPTKxue_4b7Rjez0xwQDEnAMIaKliiGqSMq3Q\",\r",
+							"  \"p\": \"7Z49uUHYPsjY9pQh64zc5eCI6_KcSeYJISC2EW6e1sL29avt_ik5we5ZSmVhmiXyhLGyNOgOyGmFNr-QXQ554xmIwerKt9UGE_FqV3x-CKppEXqo21z8b8HGNOzb4IK2pb-eyhIueXt-xR2Tf_O-mS-xnbx5uNiqz-pG8haZA98\",\r",
+							"  \"q\": \"jrrKMOxWpukBxgxKruzgq8jLm3g2v_FKy99SqyiPigNHc0yiRTDKSzK95T7Gy3DSBtF2HHR8rMGGljRWn37gKUd8XAaF7s8VRsUja7F5kwhPuInf7dFpNeX9g19Oc-lPIQfUIMuF6H2H2oIYOpBFCl61139JQezo6_Eo2Yz3Y6M\",\r",
+							"  \"dp\": \"rWWiqchD2snqbr8fq-NVFnNq1bEKQ8OKHxfeznNRUJwb_2HJWJqfxN5c1WyTVM-VTBL3qhEfi1Prlqd3LyY9RNtIHs3t4Bf9hCy1Ym-aPazJNkTAaLl58K__Vw21NSEdf97bqDbH98jSISNroo9F5Wf-Jv8oZEsU3Ok6sKi02U8\",\r",
+							"  \"dq\": \"c7oLuPb6Jne8P7bwcifYwqLOmbtqqXeIwPpDB1FRydklLQ20AL_GndYdbcQye3A7ltNY2M0m0UL3gLTQnP8WngKcLvCIRRaboSo4ZSgdYnVxEiqZ42uFvP-q9OV94XEPueqr_uo1OQvV73BmrAZF0Q6FmfiAllFi6NFfZEjIlfk\",\r",
+							"  \"qi\": \"a4dU12Ajy-kBtgvpZak11pM3YEL-AxzCuSxVigiRUD1A22Aw-Nbws4W8UtplqhComiuxHe6MrlhHkuErCxtZ6g3jd9T_QG7buBjFae8G7RdxXw3dPZmLwVGpAIzWqu9LvzHegp7iV4MlOw0Y4eCvOVC6hhRnF7sKvaTcdKCfHOA\",\r",
+							"  \"alg\": \"RS512\",\r",
+							"  \"kid\": \"BaRS-INT-1\",\r",
+							"  \"use\": \"sig\"\r",
+							"}\r",
+							"var payload = {\r",
+							"      \"iss\": \"IwrOdg62kM9LN1oFhl8RyURbHAhWPV62\",\r",
+							"\t    \"sub\": \"IwrOdg62kM9LN1oFhl8RyURbHAhWPV62\",\r",
+							"      \"kid\": \"BaRS-INT-1\",\r",
+							"      \"aud\": audience,\r",
+							"      \"jti\": myjti     \r",
+							"}\r",
+							"\r",
+							"var header = {\r",
+							"  \"typ\": \"JWT\",\r",
+							"  \"kid\": \"BaRS-INT-1\"\r",
+							"}\r",
+							"// Create a signed jwt (JWS)\r",
+							"const myjwt = pmlib.jwtSign(jwk,payload,header, exp=300,alg = \"RS512\")\r",
+							"console.log(\"BaRs JWT: \" + myjwt)\r",
+							"\r",
+							"//verify the JWT:\r",
+							"const verification = pmlib.jwtVerify(myjwt,pubkey,alg = \"RS512\")\r",
+							"console.log (\"JWT Raw: \", verification)\r",
+							"pm.globals.set(\"SandboxJwt\",myjwt)\r",
+							"console.log (\"Global Set: \" + pm.globals.get(\"SandboxJwt\"))\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var iss = new Date(parseInt(pm.response.json().issued_at)).toString();\r",
+							"\r",
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Access Token</th>\r",
+							"        <th>Expires in</th>\r",
+							"        <th>Issued at</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    <tr>\r",
+							"        <td>{{response.access_token}}</td>\r",
+							"        <td>{{response.expires_in}}</td>\r",
+							"        <td>{{response.iss}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"js = pm.response.json()\r",
+							"js.iss = iss;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: js }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"pm.test(\"Status code is 200?\", function() {\r",
+							"  pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"(pm.response.code===200 ? pm.test : pm.test.skip)(\"Parse access token?\", function () {\r",
+							"    pm.expect(pm.response.text().length).to.not.equal(0);\r",
+							"    var responseData = JSON.parse(responseBody);\r",
+							"    var accessToken = responseData.access_token;\r",
+							"    pm.globals.set(\"CurrentAccessToken\",accessToken);\r",
+							"    console.log(\"Access Token: \" + pm.globals.get(\"CurrentAccessToken\"))\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{SandboxJwt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{IntAuth}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"{{IntAuth}}"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				},
+				"description": "Gets an access token from APIM."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pointers To Appointments",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Last Updated</th>\r",
+							"        <th>Status</th>\r",
+							"        <th>Type</th>\r",
+							"        <th>Category</th>\r",
+							"        <th>Subject Identifier</th>\r",
+							"        <th>Date</th>\r",
+							"        <th>Author/Custodian Identifier</th>\r",
+							"        <th>Attachment URL</th>\r",
+							"        <th>Attachment Format</th>\r",
+							"        <th>Context Period Start</th>\r",
+							"        <th>Context Period End</th>\r",
+							"        <th>Practice Setting</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.entry}}\r",
+							"        <tr id=row_{{@key}}>\r",
+							"            <td>{{resource.id}}</td>\r",
+							"            <td>{{resource.meta.lastUpdated}}</td>\r",
+							"            <td>{{resource.status}}</td>\r",
+							"            <td>{{resource.type.coding.[0].display}}</td>\r",
+							"            <td>{{resource.category.[0].coding.[0].display}}</td>\r",
+							"            <td>{{resource.subject.identifier.value}}</td>\r",
+							"            <td>{{resource.date}}</td>\r",
+							"            <td>{{resource.author.[0].identifier.value}}/{{resource.custodian.identifier.value}}</td>\r",
+							"            <td>{{resource.content.[0].attachment.url}}</td>\r",
+							"            <td>{{resource.content.[0].format.display}}</td>\r",
+							"            <td>{{resource.context.period.start}}</td>\r",
+							"            <td>{{resource.context.period.end}}</td>\r",
+							"            <td>{{resource.context.practiceSetting.coding.[0].display}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"if(jsonData.resourceType == \"Bundle\") {\r",
+							"    identifiers = jsonData.entry[0].resource.identifier;\r",
+							"    for (let ident of identifiers) {\r",
+							"        // Get the BaRS Identifier\r",
+							"        if(ident.system == \"https://fhir.nhs.uk/Id/BaRS-Identifier\") {\r",
+							"            pm.environment.set(\"first-appt-id\", ident.value);\r",
+							"        }\r",
+							"        // Get the system Identifier and build the NHSD-Target-Identifier \r",
+							"        if(ident.system == \"https://fhir.nhs.uk/Id/dos-service-id\") {\r",
+							"            target = '{\"system\":\"https://fhir.nhs.uk/Id/dos-service-id\",\"value\":\"' + ident.value + '\"}';\r",
+							"            //console.log(target);\r",
+							"            targetIdentifier = btoa(target);\r",
+							"            //console.log(targetIdentifier);\r",
+							"            pm.environment.set(\"nhsd-target-identifier\", targetIdentifier);\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Got a Bundle\", function () {\r",
+							"    pm.expect(jsonData.resourceType).to.eql(\"Bundle\");\r",
+							"});\r",
+							"\r",
+							"if(jsonData.resourceType == \"Bundle\") {\r",
+							"    pm.test(\"Got >1 Entries\", function () {\r",
+							"        pm.expect(jsonData.total > 1);\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Entry 1 is a DocumentReference\", function () {\r",
+							"        pm.expect(jsonData.entry[0].resource.resourceType).to.eql(\"DocumentReference\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Entry 1 points to an Appointment\", function () {\r",
+							"        pm.expect(jsonData.entry[0].resource.type.coding[0].code).to.eql(\"749001000000101\");\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation-ODS",
+						"value": "{{ConsumerODSCode}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{CurrentAccessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "fhir+json;version=1.1.0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/DocumentReference?subject:identifier=https://fhir.nhs.uk/Id/nhs-number|{{NHSNumber}}&type=http://snomed.info/sct|749001000000101&category=http://snomed.info/sct|419891008",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"DocumentReference"
+					],
+					"query": [
+						{
+							"key": "subject:identifier",
+							"value": "https://fhir.nhs.uk/Id/nhs-number|{{NHSNumber}}",
+							"description": "NHS Number of the patient in question"
+						},
+						{
+							"key": "type",
+							"value": "http://snomed.info/sct|749001000000101",
+							"description": "SNOMED code for Appointment"
+						},
+						{
+							"key": "category",
+							"value": "http://snomed.info/sct|419891008",
+							"description": "SNOMED code for Record Artefact"
+						}
+					]
+				},
+				"description": "Queries NRL via BaRS for DocumentReferences for Appointments (SNOMED code: `749001000000101` see [link](https://termbrowser.nhs.uk/?perspective=full&conceptId1=749001000000101&edition=uk-edition&release=v20241120&server=https://termbrowser.nhs.uk/sct-browser-api/snomed&langRefset=999001261000000100,999000691000001104)) for patient: `{{NHSNumber}}`\n\nIt sets an env variable: `first-appt-id` to the ID of the first appointment returned.\n\nIt sets an env variabe: `nhsd-target-identifier` to the (Base 64 encoded) System ID of the first appointment returned."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointments by NHS Number",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Status</th>\r",
+							"        <th>Start</th>\r",
+							"        <th>Slot</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.entry}}\r",
+							"        <tr id=row_{{@key}}>\r",
+							"            <td>{{resource.id}}</td>\r",
+							"            <td>{{resource.status}}</td>\r",
+							"            <td>{{resource.start}}</td>\r",
+							"            <td>{{resource.slot.[0].reference}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Got a Bundle\", function () {\r",
+							"    pm.expect(jsonData.resourceType).to.eql(\"Bundle\");\r",
+							"});\r",
+							"\r",
+							"if(jsonData.resourceType == \"Bundle\") {\r",
+							"\r",
+							"    pm.test(\"Got >1 Entries\", function () {\r",
+							"        pm.expect(jsonData.total > 1);\r",
+							"    });\r",
+							"    \r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation",
+						"value": "{{EndUserOrg}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{CurrentAccessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-Target-Identifier",
+						"value": "{{nhsd-target-identifier}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/Appointment?patient:identifier=https://fhir.nhs.uk/Id/nhs-number|{{NHSNumber}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Appointment"
+					],
+					"query": [
+						{
+							"key": "patient:identifier",
+							"value": "https://fhir.nhs.uk/Id/nhs-number|{{NHSNumber}}"
+						}
+					]
+				},
+				"description": "Gets Appointments for patient: for patient: `{{NHSNumber}}`"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointment by ID via BaRS",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Status</th>\r",
+							"        <th>Start</th>\r",
+							"        <th>Slot</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"\r",
+							"    <tr id=row_{{@key}}>\r",
+							"        <td>{{response.id}}</td>\r",
+							"        <td>{{response.status}}</td>\r",
+							"        <td>{{response.start}}</td>\r",
+							"        <td>{{response.slot.[0].reference}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Got an Appointment\", function () {\r",
+							"    pm.expect(jsonData.resourceType).to.eql(\"Appointment\");\r",
+							"});\r",
+							"\r",
+							"if(jsonData.resourceType == \"Appointment\") {\r",
+							"\r",
+							"    pm.test(\"ID is correct\", function () {\r",
+							"        pm.expect(jsonData.id == pm.environment.get(\"first-appt-id\"));\r",
+							"    });\r",
+							"    \r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation",
+						"value": "{{EndUserOrg}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{CurrentAccessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-Target-Identifier",
+						"value": "{{nhsd-target-identifier}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/Appointment/{{first-appt-id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Appointment",
+						"{{first-appt-id}}"
+					]
+				},
+				"description": "Gets Appointments for patient: for patient: `{{NHSNumber}}`"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Two Appointments via BaRS by IDs",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Status</th>\r",
+							"        <th>Start</th>\r",
+							"        <th>Slot</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.entry}}\r",
+							"        <tr id=row_{{@key}}>\r",
+							"            <td>{{resource.id}}</td>\r",
+							"            <td>{{resource.status}}</td>\r",
+							"            <td>{{resource.start}}</td>\r",
+							"            <td>{{resource.slot.[0].reference}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.test(\"Got a Bundle\", function () {\r",
+							"    pm.expect(jsonData.resourceType).to.eql(\"Bundle\");\r",
+							"});\r",
+							"\r",
+							"if(jsonData.resourceType == \"Bundle\") {\r",
+							"\r",
+							"    pm.test(\"Got exactly 2 Entries\", function () {\r",
+							"        pm.expect(jsonData.total == 2);\r",
+							"    });\r",
+							"    \r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-Id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-End-User-Organisation",
+						"value": "{{EndUserOrg}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{CurrentAccessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "NHSD-Target-Identifier",
+						"value": "{{nhsd-target-identifier}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/Appointment?_id=3c82b51e-8a61-4dbb-a2d7-b1597bd0e3c3,8e94131a-8f7d-442c-bbeb-9a38e3d6153f",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Appointment"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "3c82b51e-8a61-4dbb-a2d7-b1597bd0e3c3,8e94131a-8f7d-442c-bbeb-9a38e3d6153f"
+						}
+					]
+				},
+				"description": "Gets Appointments for patient: for patient: `{{NHSNumber}}`"
+			},
+			"response": []
+		}
+	]
+}

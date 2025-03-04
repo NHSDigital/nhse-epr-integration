@@ -34,3 +34,6 @@
   - [Request Headers](pages/appendix2.md#headers)
   - [Data Flows](pages/appendix2.md#dataflows)
   - [Further low-level technical detail](pages/appendix2.md#details)
+- [Appendix 3: Demo](pages/appendix3.md)
+  - [Videos](pages/appendix3.md#videos)
+  - [Postman scripts](pages/appendix3.md#postman-scripts)
